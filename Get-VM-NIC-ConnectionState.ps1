@@ -23,7 +23,7 @@ $TimeStamp=Get-Date -format "hhmmss"
 $ReportFile = "VM-NIC-ConnectionState-$DateStamp-$TimeStamp.csv"
 $vCenter = "vCenter.domain.com"
 #If using untrusted/self-signed certs on vCenter uncomment the line below
-Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false -Scope:Session
+#Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false -Scope:Session
 
 write-host "Connecting to $vCenter"
 $error.clear()
@@ -44,12 +44,12 @@ foreach ($ThisVM in $MyVMs) {
     $VMNICs = $ThisVM| Get-NetworkAdapter
     foreach ($NIC in $VMNICs) {
         $ThisResult = New-Object -TypeName psobject
-        $ThisResult |add-member -MemberType NOteProperty -Name "Name" -value $ThisVM.Name
-        $ThisResult |add-member -MemberType NOteProperty -Name "Host" -value $ThisVM.VMHost
-        $ThisResult |add-member -MemberType NOteProperty -Name "Power State" -value $ThisVM.PowerState
-        $ThisResult |add-member -MemberType NOteProperty -Name "NIC Name" -value $NIC.Name
-        $ThisResult |add-member -MemberType NOteProperty -Name "NIC Connected" -value $NIC.ConnectionState.Connected
-        $ThisResult |add-member -MemberType NOteProperty -Name "NIC Connect At Power On" -value $NIC.ConnectionState.StartConnected
+        $ThisResult |add-member -MemberType NoteProperty -Name "Name" -value $ThisVM.Name
+        $ThisResult |add-member -MemberType NoteProperty -Name "Host" -value $ThisVM.VMHost
+        $ThisResult |add-member -MemberType NoteProperty -Name "Power State" -value $ThisVM.PowerState
+        $ThisResult |add-member -MemberType NoteProperty -Name "NIC Name" -value $NIC.Name
+        $ThisResult |add-member -MemberType NoteProperty -Name "NIC Connected" -value $NIC.ConnectionState.Connected
+        $ThisResult |add-member -MemberType NoteProperty -Name "NIC Connect At Power On" -value $NIC.ConnectionState.StartConnected
 
         $Results += $ThisResult
         $ThisResult = ""
