@@ -9,8 +9,8 @@
   <li> Testing is highly recommended.
 </ul>
 </p>
-
-<p><b>Get-VM-NIC-ConnectionState.ps1</b>
+<hr>
+<p><u>Get-VM-NIC-ConnectionState.ps1</u><br>
    This script will export to CSV a list of all VMs and the Connection State of any NICs configured for them. VMs with multiple NICs will have 1 line per NIC.
     <ul>
     <li>Name - VM name 
