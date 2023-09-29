@@ -17,7 +17,6 @@ Disclaimer:  This script was obtained from https://github.com/cybersylum
   * Testing is highly recommended.
 #>
 
-
 #Environment specific section - change for your environment
 $DateStamp=Get-Date -format "yyyyMMdd"
 $TimeStamp=Get-Date -format "hhmmss"
@@ -25,9 +24,6 @@ $ReportFile = "VM-NIC-ConnectionState-$DateStamp-$TimeStamp.csv"
 $vCenter = "vCenter.domain.com"
 #If using untrusted/self-signed certs on vCenter uncomment the line below
 Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false -Scope:Session
-
-
-
 
 write-host "Connecting to $vCenter"
 $error.clear()
